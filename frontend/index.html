@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Track KSRTC ordinary buses across Karnataka — routes, stops, schedules, and estimated arrival times." />
+    <title>KSRTC Ordinary Bus Tracker — Karnataka</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+
+    <!-- ===== NAVBAR ===== -->
+    <header class="navbar">
+      <div class="container navbar__inner">
+
+        <a href="index.html" class="navbar__brand" aria-label="KSRTC Bus Tracker home">
+          <span class="navbar__brand-icon" aria-hidden="true">🚍</span>
+          <span class="navbar__brand-text">
+            <span class="navbar__brand-title">KSRTC</span>
+            <span class="navbar__brand-subtitle">Ordinary Bus Tracker</span>
+          </span>
+        </a>
+
+        <nav aria-label="Main navigation">
+          <ul class="navbar__links" role="list">
+            <li><a href="#search"   class="navbar__link">Search</a></li>
+            <li><a href="#routes"   class="navbar__link">Routes</a></li>
+            <li><a href="#buses"    class="navbar__link">Buses</a></li>
+            <li><a href="#about"    class="navbar__link">About</a></li>
+          </ul>
+        </nav>
+
+        <!-- hamburger for mobile — toggled via JS later -->
+        <button class="navbar__toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <span class="navbar__toggle-bar"></span>
+          <span class="navbar__toggle-bar"></span>
+          <span class="navbar__toggle-bar"></span>
+        </button>
+
+      </div>
+    </header>
+
+
+    <main>
+
+      <!-- ===== HERO ===== -->
+      <section class="hero" aria-labelledby="hero-heading">
+        <div class="hero__overlay" aria-hidden="true"></div>
+        <div class="container hero__content">
+          <p class="hero__eyebrow">Karnataka State Road Transport Corporation</p>
+          <h1 class="hero__heading" id="hero-heading">
+            Track Your <span class="hero__heading--accent">Ordinary Bus</span><br />
+            Across Karnataka
+          </h1>
+          <p class="hero__subtext">
+            Find routes, stops, and estimated arrival times for ordinary KSRTC buses.
+            Real-time tracking coming soon.
+          </p>
+          <a href="#search" class="btn btn--primary btn--large">Find a Bus</a>
+        </div>
+      </section>
+
+
+      <!-- ===== SEARCH ===== -->
+      <section class="search-section" id="search" aria-labelledby="search-heading">
+        <div class="container">
+          <h2 class="search-section__heading" id="search-heading">Search Buses</h2>
+
+          <form class="search-form" role="search" novalidate>
+
+            <div class="search-form__row">
+
+              <div class="form-group">
+                <label class="form-group__label" for="from-stop">From</label>
+                <input
+                  class="form-group__input"
+                  type="text"
+                  id="from-stop"
+                  name="from"
+                  placeholder="e.g. Bengaluru"
+                  autocomplete="off"
+                  aria-required="true"
+                />
+              </div>
+
+              <button class="search-form__swap" type="button" aria-label="Swap origin and destination">
+                ⇌
+              </button>
+
+              <div class="form-group">
+                <label class="form-group__label" for="to-stop">To</label>
+                <input
+                  class="form-group__input"
+                  type="text"
+                  id="to-stop"
+                  name="to"
+                  placeholder="e.g. Mysuru"
+                  autocomplete="off"
+                  aria-required="true"
+                />
+              </div>
+
+              <div class="form-group">
+                <label class="form-group__label" for="travel-date">Date</label>
+                <input
+                  class="form-group__input"
+                  type="date"
+                  id="travel-date"
+                  name="date"
+                />
+              </div>
+
+            </div>
+
+            <button class="btn btn--primary btn--search" type="submit">
+              🔍 Search Buses
+            </button>
+
+          </form>
+        </div>
+      </section>
+
+
+      <!-- ===== POPULAR ROUTES ===== -->
+      <section class="routes-section" id="routes" aria-labelledby="routes-heading">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-header__title" id="routes-heading">Popular Routes</h2>
+            <p class="section-header__subtitle">Frequently travelled ordinary bus routes in Karnataka</p>
+          </div>
+
+          <ul class="routes-grid" role="list">
+
+            <li class="route-card">
+              <div class="route-card__cities">
+                <span class="route-card__city">Bengaluru</span>
+                <span class="route-card__arrow" aria-hidden="true">→</span>
+                <span class="route-card__city">Mysuru</span>
+              </div>
+              <div class="route-card__meta">
+                <span class="route-card__distance">145 km</span>
+                <span class="route-card__dot" aria-hidden="true">·</span>
+                <span class="route-card__duration">~3 hrs</span>
+              </div>
+              <div class="route-card__footer">
+                <span class="badge badge--green">Available</span>
+                <a href="#buses" class="route-card__link">View buses →</a>
+              </div>
+            </li>
+
+            <li class="route-card">
+              <div class="route-card__cities">
+                <span class="route-card__city">Mysuru</span>
+                <span class="route-card__arrow" aria-hidden="true">→</span>
+                <span class="route-card__city">Mandya</span>
+              </div>
+              <div class="route-card__meta">
+                <span class="route-card__distance">40 km</span>
+                <span class="route-card__dot" aria-hidden="true">·</span>
+                <span class="route-card__duration">~1 hr</span>
+              </div>
+              <div class="route-card__footer">
+                <span class="badge badge--green">Available</span>
+                <a href="#buses" class="route-card__link">View buses →</a>
+              </div>
+            </li>
+
+            <li class="route-card">
+              <div class="route-card__cities">
+                <span class="route-card__city">Bengaluru</span>
+                <span class="route-card__arrow" aria-hidden="true">→</span>
+                <span class="route-card__city">Hubballi</span>
+              </div>
+              <div class="route-card__meta">
+                <span class="route-card__distance">418 km</span>
+                <span class="route-card__dot" aria-hidden="true">·</span>
+                <span class="route-card__duration">~7 hrs</span>
+              </div>
+              <div class="route-card__footer">
+                <span class="badge badge--green">Available</span>
+                <a href="#buses" class="route-card__link">View buses →</a>
+              </div>
+            </li>
+
+            <li class="route-card">
+              <div class="route-card__cities">
+                <span class="route-card__city">Bengaluru</span>
+                <span class="route-card__arrow" aria-hidden="true">→</span>
+                <span class="route-card__city">Mangaluru</span>
+              </div>
+              <div class="route-card__meta">
+                <span class="route-card__distance">352 km</span>
+                <span class="route-card__dot" aria-hidden="true">·</span>
+                <span class="route-card__duration">~6 hrs</span>
+              </div>
+              <div class="route-card__footer">
+                <span class="badge badge--yellow">Limited</span>
+                <a href="#buses" class="route-card__link">View buses →</a>
+              </div>
+            </li>
+
+            <li class="route-card">
+              <div class="route-card__cities">
+                <span class="route-card__city">Hubballi</span>
+                <span class="route-card__arrow" aria-hidden="true">→</span>
+                <span class="route-card__city">Belagavi</span>
+              </div>
+              <div class="route-card__meta">
+                <span class="route-card__distance">95 km</span>
+                <span class="route-card__dot" aria-hidden="true">·</span>
+                <span class="route-card__duration">~2 hrs</span>
+              </div>
+              <div class="route-card__footer">
+                <span class="badge badge--green">Available</span>
+                <a href="#buses" class="route-card__link">View buses →</a>
+              </div>
+            </li>
+
+            <li class="route-card">
+              <div class="route-card__cities">
+                <span class="route-card__city">Mysuru</span>
+                <span class="route-card__arrow" aria-hidden="true">→</span>
+                <span class="route-card__city">Chamarajanagar</span>
+              </div>
+              <div class="route-card__meta">
+                <span class="route-card__distance">60 km</span>
+                <span class="route-card__dot" aria-hidden="true">·</span>
+                <span class="route-card__duration">~1.5 hrs</span>
+              </div>
+              <div class="route-card__footer">
+                <span class="badge badge--green">Available</span>
+                <a href="#buses" class="route-card__link">View buses →</a>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+      </section>
+
+
+      <!-- ===== FEATURED BUSES ===== -->
+      <section class="buses-section" id="buses" aria-labelledby="buses-heading">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-header__title" id="buses-heading">Bus Listings</h2>
+            <p class="section-header__subtitle">Ordinary KSRTC buses — schedules and stop information</p>
+          </div>
+
+          <!-- Filter bar -->
+          <div class="filter-bar" role="group" aria-label="Filter buses">
+            <button class="filter-btn filter-btn--active" type="button">All</button>
+            <button class="filter-btn" type="button">Bengaluru</button>
+            <button class="filter-btn" type="button">Mysuru</button>
+            <button class="filter-btn" type="button">Hubballi</button>
+            <button class="filter-btn" type="button">Mangaluru</button>
+          </div>
+
+          <!-- Bus cards -->
+          <ul class="buses-grid" role="list">
+
+            <li class="bus-card">
+              <div class="bus-card__header">
+                <div class="bus-card__number-wrap">
+                  <span class="bus-card__icon" aria-hidden="true">🚍</span>
+                  <span class="bus-card__number">KA-01-F-3421</span>
+                </div>
+                <span class="badge badge--green">On Time</span>
+              </div>
+              <div class="bus-card__route">
+                <span class="bus-card__origin">Bengaluru (Majestic)</span>
+                <span class="bus-card__route-arrow" aria-hidden="true">⟶</span>
+                <span class="bus-card__destination">Mysuru</span>
+              </div>
+              <div class="bus-card__info">
+                <div class="bus-card__detail">
+                  <span class="bus-card__detail-label">Current Stop</span>
+                  <span class="bus-card__detail-value">Mandya Bus Stand</span>
+                </div>
+                <div class="bus-card__detail">
+                  <span class="bus-card__detail-label">Next Stop</span>
+                  <span class="bus-card__detail-value">Srirangapatna</span>
+                </div>
+                <div class="bus-card__detail">
+                  <span class="bus-card__detail-label">ETA Mysuru</span>
+                  <span class="bus-card__detail-value bus-card__detail-value--highlight">~45 min</span>
+                </div>
+              </div>
+              <div class="bus-card__footer">
+                <span class="bus-card__stops">12 stops total</span>
+                <a href="#" class="btn btn--outline btn--small">View Details</a>
+              </div>
+            </li>
+
+            <li class="bus-card">
+              <div class="bus-card__header">
+                <div class="bus-card__number-wrap">
+                  <span class="bus-card__icon" aria-hidden="true">🚍</span>
+                  <span class="bus-card__number">KA-20-C-7812</span>
+                </div>
+                <span class="badge badge--yellow">Slight Delay</span>
+              </div>
+              <div class="bus-card__route">
+                <span class="bus-card__origin">Mysuru</span>
+                <span class="bus-card__route-arrow" aria-hidden="true">⟶</span>
+                <span class="bus-card__destination">Bengaluru (Majestic)</span>
+              </div>
+              <div class="bus-card__info">
+                <div class="bus-card__detail">
+                  <span class="bus-card__detail-label">Current Stop</span>
+                  <span class="bus-card__detail-value">Maddur</span>
+                </div>
+                <div class="bus-card__detail">
+                  <span class="bus-card__detail-label">Next Stop</span>
+                  <span class="bus-card__detail-value">Channapatna</span>
+                </div>
+                <div class="bus-card__detail">
+                  <span class="bus-card__detail-label">ETA Bengaluru</span>
+                  <span class="bus-card__detail-value bus-card__detail-value--highlight">~1 hr 20 min</span>
+                </div>
+              </div>
+              <div class="bus-card__footer">
+                <span class="bus-card__stops">12 stops total</span>
+                <a href="#" class="btn btn--outline btn--small">View Details</a>
+              </div>
+            </li>
+
+            <li class="bus-card">
+              <div class="bus-card__header">
+                <div class="bus-card__number-wrap">
+                  <span class="bus-card__icon" aria-hidden="true">🚍</span>
+                  <span class="bus-card__number">KA-22-AA-5503</span>
+                </div>
+                <span class="badge badge--green">On Time</span>
+              </div>
+              <div class="bus-card__route">
+                <span class="bus-card__origin">Hubballi</span>
+                <span class="bus-card__route-arrow" aria-hidden="true">⟶</span>
+                <span class="bus-card__destination">Belagavi</span>
+              </div>
+              <div class="bus-card__info">
+                <div class="bus-card__detail">
+                  <span class="bus-card__detail-label">Current Stop</span>
+                  <span class="bus-card__detail-value">Dharwad</span>
+                </div>
+                <div class="bus-card__detail">
+                  <span class="bus-card__detail-label">Next Stop</span>
+                  <span class="bus-card__detail-value">Alnavar</span>
+                </div>
+                <div class="bus-card__detail">
+                  <span class="bus-card__detail-label">ETA Belagavi</span>
+                  <span class="bus-card__detail-value bus-card__detail-value--highlight">~1 hr 10 min</span>
+                </div>
+              </div>
+              <div class="bus-card__footer">
+                <span class="bus-card__stops">8 stops total</span>
+                <a href="#" class="btn btn--outline btn--small">View Details</a>
+              </div>
+            </li>
+
+            <li class="bus-card">
+              <div class="bus-card__header">
+                <div class="bus-card__number-wrap">
+                  <span class="bus-card__icon" aria-hidden="true">🚍</span>
+                  <span class="bus-card__number">KA-19-B-2290</span>
+                </div>
+                <span class="badge badge--red">Delayed</span>
+              </div>
+              <div class="bus-card__route">
+                <span class="bus-card__origin">Bengaluru</span>
+                <span class="bus-card__route-arrow" aria-hidden="true">⟶</span>
+                <span class="bus-card__destination">Mangaluru</span>
+              </div>
+              <div class="bus-card__info">
+                <div class="bus-card__detail">
+                  <span class="bus-card__detail-label">Current Stop</span>
+                  <span class="bus-card__detail-value">Hassan Bus Stand</span>
+                </div>
+                <div class="bus-card__detail">
+                  <span class="bus-card__detail-label">Next Stop</span>
+                  <span class="bus-card__detail-value">Sakleshpur</span>
+                </div>
+                <div class="bus-card__detail">
+                  <span class="bus-card__detail-label">ETA Mangaluru</span>
+                  <span class="bus-card__detail-value bus-card__detail-value--highlight">~2 hrs 30 min</span>
+                </div>
+              </div>
+              <div class="bus-card__footer">
+                <span class="bus-card__stops">15 stops total</span>
+                <a href="#" class="btn btn--outline btn--small">View Details</a>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+      </section>
+
+
+      <!-- ===== ABOUT / INFO BANNER ===== -->
+      <section class="info-section" id="about" aria-labelledby="about-heading">
+        <div class="container info-section__inner">
+          <div class="info-section__text">
+            <h2 class="info-section__heading" id="about-heading">About This Tracker</h2>
+            <p class="info-section__body">
+              This platform provides route and schedule information for
+              <strong>ordinary KSRTC buses</strong> across Karnataka.
+              Bus location and ETA data shown currently uses estimated values.
+              Real-time live tracking will be added once an authorized GPS or
+              telemetry source is available.
+            </p>
+            <ul class="info-section__list" role="list">
+              <li>✅ Route and stop information</li>
+              <li>✅ Schedule and estimated ETA</li>
+              <li>🔜 Live bus location (coming soon)</li>
+              <li>🔜 Mobile app (coming soon)</li>
+            </ul>
+          </div>
+          <div class="info-section__stats" aria-label="Platform statistics">
+            <div class="stat-card">
+              <span class="stat-card__number">200+</span>
+              <span class="stat-card__label">Routes</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-card__number">1,500+</span>
+              <span class="stat-card__label">Stops</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-card__number">30</span>
+              <span class="stat-card__label">Districts</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer" role="contentinfo">
+      <div class="container footer__inner">
+
+        <div class="footer__brand">
+          <span class="footer__brand-icon" aria-hidden="true">🚍</span>
+          <div>
+            <p class="footer__brand-title">KSRTC Ordinary Bus Tracker</p>
+            <p class="footer__brand-tagline">Karnataka — Public Transport Information</p>
+          </div>
+        </div>
+
+        <nav class="footer__links" aria-label="Footer navigation">
+          <a href="#search" class="footer__link">Search</a>
+          <a href="#routes" class="footer__link">Routes</a>
+          <a href="#buses" class="footer__link">Buses</a>
+          <a href="#about" class="footer__link">About</a>
+        </nav>
+
+        <p class="footer__disclaimer">
+          ETA and location data are estimates. This is not an official KSRTC platform.
+        </p>
+
+        <p class="footer__copy">
+          &copy; 2026 KSRTC Bus Tracker. Built for Karnataka passengers.
+        </p>
+
+      </div>
+    </footer>
+
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
