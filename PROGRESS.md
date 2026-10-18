@@ -130,157 +130,134 @@ React Native
 
 # DAY 02 — Frontend Foundation
 
-**Status:** ⏳ NEXT
+**Status:** ✅ COMPLETED
 
 ## Goal
-
 Create the initial website structure.
 
 ### Tasks
-
-* Create `index.html`
-* Build semantic HTML structure
-* Create navbar
-* Create hero/search section
-* Create bus section
-* Create route section
-* Create footer
-* Link CSS
-* Link JavaScript
+* ✅ Create `index.html`
+* ✅ Build semantic HTML structure
+* ✅ Create navbar
+* ✅ Create hero/search section
+* ✅ Create bus section
+* ✅ Create route section
+* ✅ Create footer
+* ✅ Link CSS
+* ✅ Link JavaScript
 
 ---
 
 # DAY 03 — CSS Design
 
-**Status:** ⏳ PENDING
+**Status:** ✅ COMPLETED
 
 ### Tasks
-
-* CSS reset
-* Typography
-* Colors
-* Spacing
-* Navbar
-* Buttons
-* Cards
-* Layout
-* Flexbox
-* Grid
-* Responsive design
+* ✅ CSS reset & root variables
+* ✅ Typography & color system
+* ✅ Spacing tokens
+* ✅ Navbar & navigation
+* ✅ Buttons & card styles
+* ✅ Flexbox & CSS Grid layouts
+* ✅ Responsive design
 
 ---
 
 # DAY 04 — Mobile Responsive UI
 
-**Status:** ⏳ PENDING
+**Status:** ✅ COMPLETED
 
 ### Tasks
-
-* Mobile layout
-* Tablet layout
-* Desktop layout
-* Media queries
-* Navigation behavior
-* Responsive cards
-* Responsive forms
+* ✅ Mobile layout & hamburger menu
+* ✅ Tablet layout
+* ✅ Desktop layout
+* ✅ Media queries
+* ✅ Responsive search form & cards
 
 ---
 
-# DAY 05 — JavaScript Data
+# DAY 05 — Bus Data Models & Catalog
 
-**Status:** ⏳ PENDING
+**Status:** ✅ COMPLETED
 
 ### Tasks
-
-Create hardcoded:
-
-* Bus objects
-* Route objects
-* Stop objects
-* Schedule data
-
-Then connect the data to the UI.
+* ✅ Defined realistic Karnataka ordinary bus models
+* ✅ Route objects & distances (`routes.json`)
+* ✅ Stop objects with coordinates (`stops.json`)
+* ✅ Schedule & telemetry metadata (`buses.json`)
 
 ---
 
 # DAY 06 — Dynamic Bus Cards
 
-**Status:** ⏳ PENDING
+**Status:** ✅ COMPLETED
 
 ### Tasks
-
-Use JavaScript to generate bus cards dynamically.
+* ✅ Replaced static HTML cards with dynamic rendering via `script.js`
+* ✅ Registration badges, depot names, bus types
+* ✅ Real-time status indicators (On Time, Slight Delay, Delayed)
 
 ---
 
-# DAY 07 — Search
+# DAY 07 — Search System
 
-**Status:** ⏳ PENDING
+**Status:** ✅ COMPLETED
 
 ### Tasks
-
-Implement:
-
-* Bus search
-* Route search
-* Stop search
-* Empty results
+* ✅ Bus origin and destination search
+* ✅ Stop search via query parameters
+* ✅ Swap origin/destination button (⇌)
+* ✅ Empty search state with reset action
 
 ---
 
-# DAY 08 — Filters
+# DAY 08 — Filtering & Routes
 
-**Status:** ⏳ PENDING
+**Status:** ✅ COMPLETED
 
 ### Tasks
-
-* Status filter
-* Route filter
-* ETA sorting
-* Clear filters
+* ✅ City filter tabs (Bengaluru, Mysuru, Hubballi, Mangaluru, All)
+* ✅ One-click route filtering from Popular Routes cards
+* ✅ Synchronized state between filters and search bar
 
 ---
 
-# DAY 09 — Bus Details
+# DAY 09 — Bus Details & Stop Progress Timeline
 
-**Status:** ⏳ PENDING
+**Status:** ✅ COMPLETED
 
 ### Tasks
-
-Create detailed bus information:
-
-* Bus number
-* Route
-* Current stop
-* Next stop
-* ETA
-* Status
-* Stops
+* ✅ Built accessible interactive modal dialog
+* ✅ Vertical stop progress timeline (completed, active, upcoming stops)
+* ✅ Dynamic fare calculation per stop
+* ✅ Live metrics display (current stop, next stop, ETA)
 
 ---
 
-# DAY 10 — Simulated Live Tracking
+# DAY 10 — Simulated Live Tracking Engine
 
-**Status:** ⏳ PENDING
+**Status:** ✅ COMPLETED
 
 ### Tasks
-
-Simulate:
-
-```text
-Current stop
-Next stop
-ETA
-Bus movement
-```
+* ✅ In-memory bus progression simulation
+* ✅ Speed and coordinate telemetry calculations
+* ✅ Automatic periodic location updates
 
 ---
 
-# DAY 11+ — Continue Development
+# DAY 11 — Backend REST API & Multi-Source Telemetry (Hackathon Showcase)
 
-Future daily tasks will be added here as they are actually completed.
+**Status:** ✅ COMPLETED
 
-Do not mark future tasks as completed before implementation.
+### Tasks
+* ✅ Built Node.js & Express REST API server (`backend/server.js`)
+* ✅ Endpoint `GET /api/buses` with multi-parameter filtering
+* ✅ Endpoint `GET /api/buses/:id` and `GET /api/buses/:id/tracking`
+* ✅ Endpoint `GET /api/routes` and `GET /api/stops`
+* ✅ Endpoint `POST /api/telemetry` for driver smartphone & GPS hardware ingestion
+* ✅ Endpoint `POST /api/telemetry/simulate-step/:busId` for live hackathon judge demonstrations
+* ✅ Integrated Frontend with Backend via Fetch API
+* ✅ Full-stack verification running live on `http://localhost:5000`
 
 ---
 
@@ -289,30 +266,27 @@ Do not mark future tasks as completed before implementation.
 ```text
 Project idea             ✅
 Implementation plan      ✅
-Directory                ✅
-README                   ✅
+Directory structure      ✅
+README master roadmap    ✅
 Progress tracking        ✅
 
-HTML                     ⏳
-CSS                      ⏳
-JavaScript                ⏳
-Hardcoded data            ⏳
-Search                    ⏳
-Filtering                 ⏳
-Bus details               ⏳
-Simulated tracking        ⏳
-Fetch/API                 ⏳
-React                     ⏳
-Next.js                   ⏳
-Java/Spring Boot          ⏳
-MySQL                     ⏳
-MongoDB                   ⏳
-Authentication            ⏳
-React Native              ⏳
-Real location             ⏳
-ETA engine                ⏳
-Deployment                ⏳
-AI features               ⏳
+HTML foundation          ✅
+CSS design & responsive  ✅
+JavaScript engine        ✅
+Bus/Route/Stop data      ✅
+Search & filters         ✅
+Bus details & timeline   ✅
+Simulated live tracking  ✅
+Fetch API integration    ✅
+Backend REST API         ✅
+Telemetry ingestion API  ✅
+
+Database (MySQL/MongoDB) ⏳ (Future phase)
+Spring Boot migration    ⏳ (Future phase)
+Authentication           ⏳ (Future phase)
+React Native App         ⏳ (Future phase)
+Official GPS hardware    ⏳ (Future phase)
+AI features              ⏳ (Future phase)
 ```
 
 ---

@@ -1,0 +1,86 @@
+[
+  {
+    "id": "RT-BLR-MYS",
+    "routeNumber": "KSRTC-ORD-101",
+    "origin": "Bengaluru (Majestic)",
+    "destination": "Mysuru (Suburban)",
+    "distanceKm": 145,
+    "approxDuration": "3 hrs",
+    "status": "Available",
+    "frequency": "Every 15-20 min",
+    "via": ["Kengeri", "Bidadi", "Ramanagara", "Channapatna", "Maddur", "Mandya", "Srirangapatna"],
+    "baseFare": 110
+  },
+  {
+    "id": "RT-MYS-MND",
+    "routeNumber": "KSRTC-ORD-102",
+    "origin": "Mysuru",
+    "destination": "Mandya",
+    "distanceKm": 40,
+    "approxDuration": "1 hr",
+    "status": "Available",
+    "frequency": "Every 10 min",
+    "via": ["Srirangapatna", "Pandavapura Cross"],
+    "baseFare": 35
+  },
+  {
+    "id": "RT-BLR-HUB",
+    "routeNumber": "KSRTC-ORD-201",
+    "origin": "Bengaluru",
+    "destination": "Hubballi",
+    "distanceKm": 418,
+    "approxDuration": "7.5 hrs",
+    "status": "Available",
+    "frequency": "Hourly",
+    "via": ["Tumakuru", "Sira", "Chitradurga", "Davangere", "Haveri"],
+    "baseFare": 380
+  },
+  {
+    "id": "RT-BLR-MNG",
+    "routeNumber": "KSRTC-ORD-301",
+    "origin": "Bengaluru",
+    "destination": "Mangaluru",
+    "distanceKm": 352,
+    "approxDuration": "6.5 hrs",
+    "status": "Limited",
+    "frequency": "Every 45 min",
+    "via": ["Kunigal", "Channarayapatna", "Hassan", "Sakleshpur", "Uppinangady", "BC Road"],
+    "baseFare": 310
+  },
+  {
+    "id": "RT-HUB-BLG",
+    "routeNumber": "KSRTC-ORD-401",
+    "origin": "Hubballi",
+    "destination": "Belagavi",
+    "distanceKm": 95,
+    "approxDuration": "2 hrs",
+    "status": "Available",
+    "frequency": "Every 15 min",
+    "via": ["Dharwad", "Alnavar Cross", "Kittur", "Bachi"],
+    "baseFare": 85
+  },
+  {
+    "id": "RT-MYS-CHM",
+    "routeNumber": "KSRTC-ORD-501",
+    "origin": "Mysuru",
+    "destination": "Chamarajanagar",
+    "distanceKm": 60,
+    "approxDuration": "1.5 hrs",
+    "status": "Available",
+    "frequency": "Every 20 min",
+    "via": ["Kadakola", "Nanjangud", "Kowlande", "Begur"],
+    "baseFare": 55
+  },
+  {
+    "id": "RT-BLR-SHV",
+    "routeNumber": "KSRTC-ORD-601",
+    "origin": "Bengaluru",
+    "destination": "Shivamogga",
+    "distanceKm": 280,
+    "approxDuration": "5.5 hrs",
+    "status": "Available",
+    "frequency": "Every 30 min",
+    "via": ["Tumakuru", "Tiptur", "Arsikere", "Kadur", "Birur", "Bhadravathi"],
+    "baseFare": 250
+  }
+]

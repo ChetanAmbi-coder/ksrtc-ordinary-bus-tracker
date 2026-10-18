@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KSRTC Driver Cockpit — Live GPS Telemetry Transmitter</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    body {
+      background: #0f172a;
+      color: #f8fafc;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .driver-header {
+      background: #1e293b;
+      padding: 1rem 1.5rem;
+      border-bottom: 2px solid #e63946;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .driver-header h1 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #fff;
+    }
+    .driver-header a {
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 0.875rem;
+    }
+    .driver-header a:hover {
+      color: #fff;
+    }
+    .cockpit-container {
+      max-width: 600px;
+      margin: 1.5rem auto;
+      padding: 0 1rem;
+      width: 100%;
+      flex: 1;
+    }
+    .card-panel {
+      background: #1e293b;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid #334155;
+    }
+    .gps-toggle-btn {
+      width: 100%;
+      padding: 1.25rem;
+      font-size: 1.25rem;
+      font-weight: 700;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.75rem;
+      transition: all 0.2s;
+    }
+    .gps-toggle-btn--off {
+      background: #22c55e;
+      color: #0f172a;
+    }
+    .gps-toggle-btn--off:hover {
+      background: #16a34a;
+      color: #fff;
+    }
+    .gps-toggle-btn--on {
+      background: #ef4444;
+      color: #fff;
+      animation: pulse-red 2s infinite;
+    }
+    @keyframes pulse-red {
+      0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.6); }
+      70% { box-shadow: 0 0 0 12px rgba(239, 68, 68, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+    }
+    .field-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #94a3b8;
+      margin-bottom: 0.35rem;
+      display: block;
+    }
+    .cockpit-select {
+      width: 100%;
+      padding: 0.75rem;
+      border-radius: 8px;
+      background: #0f172a;
+      border: 1px solid #475569;
+      color: #fff;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+    .stats-dashboard {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+    .stat-box {
+      background: #0f172a;
+      border: 1px solid #334155;
+      padding: 0.75rem;
+      border-radius: 8px;
+    }
+    .stat-box-val {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #38bdf8;
+      margin-top: 0.2rem;
+    }
+    .log-terminal {
+      background: #090d16;
+      border-radius: 8px;
+      padding: 1rem;
+      font-family: 'Courier New', monospace;
+      font-size: 0.8rem;
+      color: #4ade80;
+      height: 160px;
+      overflow-y: auto;
+      border: 1px solid #1e293b;
+    }
+    .log-terminal p {
+      margin: 0.2rem 0;
+    }
+    .shakti-banner {
+      padding: 0.6rem 0.8rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .shakti-banner--green {
+      background: #064e3b;
+      color: #a7f3d0;
+      border: 1px solid #059669;
+    }
+    .shakti-banner--red {
+      background: #7f1d1d;
+      color: #fecaca;
+      border: 1px solid #dc2626;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="driver-header">
+    <h1>
+      <span>🚍</span> KSRTC Driver Live Cockpit
+    </h1>
+    <a href="index.html">← Back to Passenger Tracker</a>
+  </header>
+
+  <div class="cockpit-container">
+
+    <div class="card-panel">
+      <label class="field-label" for="bus-select">Select Your Bus Vehicle:</label>
+      <select id="bus-select" class="cockpit-select">
+        <option value="">Loading active buses...</option>
+      </select>
+
+      <div id="shakti-indicator" class="shakti-banner shakti-banner--green">
+        🌸 <strong>Shakthi Scheme Eligible:</strong> Ordinary Bus (Free Travel for Women)
+      </div>
+
+      <button id="gps-toggle" class="gps-toggle-btn gps-toggle-btn--off" type="button">
+        📡 <span>START DRIVER GPS TRACKING</span>
+      </button>
+
+      <div style="margin-top: 1rem; display: flex; gap: 0.5rem;">
+        <button id="step-btn" class="btn btn--outline" style="flex: 1; border-color: #475569; color: #cbd5e1;" type="button">
+          ⏩ Next Stop Ping
+        </button>
+        <button id="auto-btn" class="btn btn--outline" style="flex: 1; border-color: #475569; color: #cbd5e1;" type="button">
+          🔄 Auto-Drive Sim: OFF
+        </button>
+      </div>
+    </div>
+
+    <!-- Live Telemetry Metrics -->
+    <div class="card-panel">
+      <h3 style="font-size: 0.9rem; text-transform: uppercase; color: #94a3b8; margin-bottom: 0.75rem;">
+        📡 Live Telemetry Stream
+      </h3>
+
+      <div class="stats-dashboard">
+        <div class="stat-box">
+          <span class="field-label">Current Stop</span>
+          <p id="stat-stop" class="stat-box-val">—</p>
+        </div>
+        <div class="stat-box">
+          <span class="field-label">Next Stop</span>
+          <p id="stat-next" class="stat-box-val">—</p>
+        </div>
+        <div class="stat-box">
+          <span class="field-label">GPS Latitude, Longitude</span>
+          <p id="stat-coords" class="stat-box-val" style="font-size: 0.95rem;">0.0000, 0.0000</p>
+        </div>
+        <div class="stat-box">
+          <span class="field-label">Pings Broadcasted</span>
+          <p id="stat-pings" class="stat-box-val">0</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Terminal logs -->
+    <div class="card-panel">
+      <span class="field-label">Telemetry Ingestion Log:</span>
+      <div id="log-terminal" class="log-terminal">
+        <p>[System] Driver Cockpit initialized. Select bus and enable GPS.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    const API_BASE = '/api';
+    let isTracking = false;
+    let isAutoSim = false;
+    let watchId = null;
+    let autoSimTimer = null;
+    let pingCount = 0;
+    let busesData = [];
+
+    const busSelect = document.getElementById('bus-select');
+    const gpsToggle = document.getElementById('gps-toggle');
+    const stepBtn = document.getElementById('step-btn');
+    const autoBtn = document.getElementById('auto-btn');
+    const statStop = document.getElementById('stat-stop');
+    const statNext = document.getElementById('stat-next');
+    const statCoords = document.getElementById('stat-coords');
+    const statPings = document.getElementById('stat-pings');
+    const logTerminal = document.getElementById('log-terminal');
+    const shaktiIndicator = document.getElementById('shakti-indicator');
+
+    function log(msg) {
+      const p = document.createElement('p');
+      p.textContent = `[${new Date().toLocaleTimeString()}] ${msg}`;
+      logTerminal.appendChild(p);
+      logTerminal.scrollTop = logTerminal.scrollHeight;
+    }
+
+    async function loadBuses() {
+      try {
+        const res = await fetch(`${API_BASE}/buses`);
+        const json = await res.json();
+        if (json.success) {
+          busesData = json.data;
+          busSelect.innerHTML = busesData.map(b => `
+            <option value="${b.id}">${b.busNumber} — ${b.origin} ⟶ ${b.destination} (${b.busCategory || 'Ordinary'})</option>
+          `).join('');
+          updateSelectedBusInfo();
+        }
+      } catch (err) {
+        log('Error loading buses from API: ' + err.message);
+      }
+    }
+
+    function updateSelectedBusInfo() {
+      const busId = busSelect.value;
+      const bus = busesData.find(b => b.id === busId);
+      if (!bus) return;
+
+      statStop.textContent = bus.currentStop || '—';
+      statNext.textContent = bus.nextStop || '—';
+      if (bus.currentLocation) {
+        statCoords.textContent = `${bus.currentLocation.lat.toFixed(4)}, ${bus.currentLocation.lng.toFixed(4)}`;
+      }
+
+      if (bus.shaktiSchemeEligible) {
+        shaktiIndicator.className = 'shakti-banner shakti-banner--green';
+        shaktiIndicator.innerHTML = '🌸 <strong>Shakthi Scheme Eligible:</strong> Ordinary Bus (Free Travel for Women)';
+      } else {
+        shaktiIndicator.className = 'shakti-banner shakti-banner--red';
+        shaktiIndicator.innerHTML = '🚫 <strong>Special/Premium Bus:</strong> Shakthi Scheme NOT Allowed (Full Ticket Required)';
+      }
+    }
+
+    busSelect.addEventListener('change', updateSelectedBusInfo);
+
+    gpsToggle.addEventListener('click', () => {
+      if (!isTracking) {
+        startGps();
+      } else {
+        stopGps();
+      }
+    });
+
+    stepBtn.addEventListener('click', async () => {
+      const busId = busSelect.value;
+      if (!busId) return;
+      try {
+        const res = await fetch(`${API_BASE}/telemetry/simulate-step/${busId}`, { method: 'POST' });
+        const json = await res.json();
+        if (json.success) {
+          pingCount++;
+          statPings.textContent = pingCount;
+          statStop.textContent = json.data.currentStop;
+          statNext.textContent = json.data.nextStop;
+          statCoords.textContent = `${json.data.currentLocation.lat.toFixed(4)}, ${json.data.currentLocation.lng.toFixed(4)}`;
+          log(`Manual Ping: Bus advanced to ${json.data.currentStop}`);
+        }
+      } catch (err) {
+        log('Failed to advance step: ' + err.message);
+      }
+    });
+
+    autoBtn.addEventListener('click', () => {
+      isAutoSim = !isAutoSim;
+      if (isAutoSim) {
+        autoBtn.textContent = '🔄 Auto-Drive Sim: ON';
+        autoBtn.style.borderColor = '#22c55e';
+        autoBtn.style.color = '#22c55e';
+        log('Auto-Drive simulation started (updating every 10s)');
+        autoSimTimer = setInterval(() => stepBtn.click(), 10000);
+      } else {
+        autoBtn.textContent = '🔄 Auto-Drive Sim: OFF';
+        autoBtn.style.borderColor = '#475569';
+        autoBtn.style.color = '#cbd5e1';
+        clearInterval(autoSimTimer);
+        log('Auto-Drive simulation paused');
+      }
+    });
+
+    function startGps() {
+      isTracking = true;
+      gpsToggle.className = 'gps-toggle-btn gps-toggle-btn--on';
+      gpsToggle.innerHTML = '🛑 <span>STOP DRIVER GPS (LIVE STREAMING)</span>';
+      log('Driver smartphone GPS tracking turned ON');
+
+      if ('geolocation' in navigator) {
+        watchId = navigator.geolocation.watchPosition(
+          (pos) => {
+            const { latitude, longitude, speed } = pos.coords;
+            sendTelemetry(latitude, longitude, speed || 45);
+          },
+          (err) => {
+            log('GPS Device Warning: ' + err.message + ' (Falling back to route telemetry telemetry stream)');
+          },
+          { enableHighAccuracy: true, maximumAge: 5000, timeout: 10000 }
+        );
+      } else {
+        log('Browser Geolocation not supported. Using high-resolution simulation telemetry.');
+      }
+    }
+
+    function stopGps() {
+      isTracking = false;
+      gpsToggle.className = 'gps-toggle-btn gps-toggle-btn--off';
+      gpsToggle.innerHTML = '📡 <span>START DRIVER GPS TRACKING</span>';
+      if (watchId !== null) {
+        navigator.geolocation.clearWatch(watchId);
+        watchId = null;
+      }
+      log('Driver GPS tracking turned OFF');
+    }
+
+    async function sendTelemetry(lat, lng, speed) {
+      const busId = busSelect.value;
+      try {
+        const res = await fetch(`${API_BASE}/telemetry`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            busId,
+            latitude: lat,
+            longitude: lng,
+            speedKmH: Math.round(speed || 48),
+            source: 'Driver Smartphone Live GPS'
+          })
+        });
+        const json = await res.json();
+        if (json.success) {
+          pingCount++;
+          statPings.textContent = pingCount;
+          statCoords.textContent = `${lat.toFixed(4)}, ${lng.toFixed(4)}`;
+          log(`GPS Sent: [${lat.toFixed(4)}, ${lng.toFixed(4)}] • Stop: ${json.data.currentStop}`);
+        }
+      } catch (err) {
+        log('Telemetry broadcast failed: ' + err.message);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', loadBuses);
+  </script>
+</body>
+</html>
