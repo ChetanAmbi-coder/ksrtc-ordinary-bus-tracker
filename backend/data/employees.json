@@ -1,0 +1,56 @@
+[
+  {
+    "pfNumber": "PF-84920",
+    "name": "Basavaraju K.M.",
+    "role": "Driver",
+    "depot": "Bengaluru Central Depot-4",
+    "assignedBus": "KA-01-F-3251",
+    "password": "driver@84920",
+    "status": "Active Duty"
+  },
+  {
+    "pfNumber": "PF-55104",
+    "name": "Manjunatha Swamy",
+    "role": "Driver",
+    "depot": "Mysuru City Depot-2",
+    "assignedBus": "KA-09-F-1102",
+    "password": "driver@55104",
+    "status": "Active Duty"
+  },
+  {
+    "pfNumber": "PF-73211",
+    "name": "Ramesh Patil",
+    "role": "Driver",
+    "depot": "Belagavi CBT Depot",
+    "assignedBus": "KA-22-F-3912",
+    "password": "driver@73211",
+    "status": "Active Duty"
+  },
+  {
+    "pfNumber": "PF-91044",
+    "name": "Suresh Rathod",
+    "role": "Driver",
+    "depot": "Kalaburagi Central Depot",
+    "assignedBus": "KA-32-F-4180",
+    "password": "driver@91044",
+    "status": "Active Duty"
+  },
+  {
+    "pfNumber": "PF-61890",
+    "name": "Anand Poojary",
+    "role": "Driver",
+    "depot": "Mangaluru Depot-1",
+    "assignedBus": "KA-19-F-5502",
+    "password": "driver@61890",
+    "status": "Active Duty"
+  },
+  {
+    "pfNumber": "PF-34201",
+    "name": "Venkatesh Murthy",
+    "role": "Conductor",
+    "depot": "Mandya Regional Depot",
+    "assignedBus": "KA-11-F-2219",
+    "password": "conductor@34201",
+    "status": "Active Duty"
+  }
+]

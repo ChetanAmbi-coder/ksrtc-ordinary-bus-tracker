@@ -1072,3 +1072,634 @@ ul[role="list"] {
 #about {
   scroll-margin-top: calc(var(--navbar-height) + var(--space-4));
 }
+
+
+/* ─── 18. MODAL & TELEMETRY TIMELINE ──────────────────────────── */
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition);
+}
+
+.modal-backdrop--open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  width: 100%;
+  max-width: 650px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transform: translateY(20px);
+  transition: transform var(--transition);
+}
+
+.modal-backdrop--open .modal-card {
+  transform: translateY(0);
+}
+
+.modal-card__header {
+  padding: var(--space-5) var(--space-6);
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fdfdfd;
+}
+
+.modal-card__title-wrap {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.modal-card__bus-no {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--color-secondary);
+}
+
+.modal-card__close {
+  background: none;
+  border: none;
+  font-size: var(--text-2xl);
+  line-height: 1;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+}
+
+.modal-card__close:hover {
+  color: var(--color-primary);
+  background: var(--color-bg);
+}
+
+.modal-card__body {
+  padding: var(--space-6);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+/* Telemetry source card */
+.telemetry-card {
+  background: #f0f7f4;
+  border: 1px solid #c2e2d3;
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.telemetry-card__info {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.pulse-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #2d6a4f;
+  box-shadow: 0 0 0 rgba(45, 106, 79, 0.4);
+  animation: pulse 1.8s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(45, 106, 79, 0.7); }
+  70% { box-shadow: 0 0 0 8px rgba(45, 106, 79, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(45, 106, 79, 0); }
+}
+
+.telemetry-card__source {
+  font-weight: 600;
+  font-size: var(--text-sm);
+  color: #1e4635;
+}
+
+.telemetry-card__sub {
+  font-size: var(--text-xs);
+  color: #406856;
+}
+
+/* Live stats 3-grid */
+.stats-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+}
+
+.stat-pill {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  text-align: center;
+}
+
+.stat-pill__label {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.stat-pill__value {
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--color-secondary);
+  margin-top: 2px;
+}
+
+/* Timeline */
+.timeline-heading {
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--color-secondary);
+  margin-top: var(--space-2);
+}
+
+.timeline {
+  list-style: none;
+  position: relative;
+  padding-left: var(--space-6);
+  border-left: 2px dashed var(--color-border);
+  margin-left: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.timeline__item {
+  position: relative;
+  font-size: var(--text-sm);
+}
+
+.timeline__item::before {
+  content: '';
+  position: absolute;
+  left: calc(-1 * var(--space-6) - 5px);
+  top: 4px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid var(--color-border);
+}
+
+.timeline__item--completed::before {
+  background: var(--color-green);
+  border-color: var(--color-green);
+}
+
+.timeline__item--current::before {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 4px rgba(230, 57, 70, 0.2);
+}
+
+.timeline__stop-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.timeline__stop-name {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.timeline__item--current .timeline__stop-name {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.timeline__stop-time {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+.modal-card__footer {
+  padding: var(--space-4) var(--space-6);
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fdfdfd;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.btn--simulate {
+  background: #2A9D8F;
+  color: #fff;
+  border: none;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  transition: background var(--transition);
+}
+
+.btn--simulate:hover {
+  background: #21867a;
+}
+
+
+/* ─── 19. DISTRICT & TALUK SELECTOR (ALL 31 DISTRICTS) ────────── */
+
+.district-selector-box {
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  margin-top: var(--space-4);
+  margin-bottom: var(--space-3);
+}
+
+.district-selector-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-3);
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.district-selector-title {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--color-secondary);
+}
+
+.district-selector-badge {
+  background: #e2e8f0;
+  color: #334155;
+  font-size: var(--text-xs);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+}
+
+.district-selector-controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: var(--space-3);
+  align-items: flex-end;
+}
+
+@media (max-width: 768px) {
+  .district-selector-controls {
+    grid-template-columns: 1fr;
+  }
+}
+
+.district-selector-label {
+  display: block;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-1);
+}
+
+.district-actions {
+  display: flex;
+  gap: var(--space-2);
+}
+
+/* Shakthi scheme filter toggle */
+.shakthi-filter-row {
+  background: #fdf2f8;
+  border: 1px solid #fbcfe8;
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  margin-top: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.shakthi-toggle-label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  cursor: pointer;
+  font-size: var(--text-sm);
+  color: #831843;
+}
+
+.shakthi-toggle-label input[type="checkbox"] {
+  width: 1.15rem;
+  height: 1.15rem;
+  accent-color: #db2777;
+  cursor: pointer;
+}
+
+/* Bus Card Shakthi scheme tags */
+.shakthi-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  margin-top: var(--space-2);
+  width: 100%;
+}
+
+.shakthi-tag--free {
+  background: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+}
+
+.shakthi-tag--paid {
+  background: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+/* ─── 20. KARNATAKA LIVE MAP ─────────────────────────────────── */
+
+.map-section {
+  padding: var(--space-12) 0;
+  background: #f8fafc;
+}
+
+.map-container-wrap {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+.map-legend-bar {
+  background: #ffffff;
+  padding: var(--space-3) var(--space-5);
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.legend-dot--green {
+  background: #2a9d8f;
+  box-shadow: 0 0 0 2px rgba(42, 157, 143, 0.3);
+}
+
+.legend-dot--red {
+  background: #e63946;
+  box-shadow: 0 0 0 2px rgba(230, 57, 70, 0.3);
+}
+
+#karnataka-map {
+  height: 520px;
+  width: 100%;
+}
+
+/* Map popup styling */
+.leaflet-popup-content-wrapper {
+  border-radius: var(--radius-md) !important;
+  box-shadow: var(--shadow-lg) !important;
+}
+
+.map-popup-card {
+  padding: 4px;
+  font-family: var(--font-sans);
+}
+
+.map-popup-bus {
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--color-secondary);
+}
+
+.map-popup-route {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  margin-bottom: 6px;
+}
+
+.map-popup-meta {
+  font-size: var(--text-xs);
+  line-height: 1.5;
+  margin: 6px 0;
+}
+
+
+/* ─── 21. AUTHENTICATION & KSRTC EMPLOYEE PORTAL ─────────────── */
+
+.auth-role-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--color-border);
+  background: #f8fafc;
+}
+
+.auth-role-tab {
+  flex: 1;
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  border: none;
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transition: all var(--transition);
+}
+
+.auth-role-tab--active {
+  color: var(--color-primary);
+  background: var(--color-surface);
+  border-bottom-color: var(--color-primary);
+}
+
+.auth-sub-toggle {
+  display: flex;
+  background: #e2e8f0;
+  border-radius: var(--radius-full);
+  padding: 3px;
+  margin-bottom: var(--space-4);
+}
+
+.sub-toggle-btn {
+  flex: 1;
+  padding: 6px;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  border: none;
+  border-radius: var(--radius-full);
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.sub-toggle-btn--active {
+  background: #ffffff;
+  color: var(--color-secondary);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Password strength bar */
+.strength-meter-wrap {
+  margin-top: 4px;
+}
+
+.strength-bar-bg {
+  height: 6px;
+  background: #e2e8f0;
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+
+.strength-bar-fill {
+  height: 100%;
+  width: 0%;
+  transition: width 0.3s ease, background 0.3s ease;
+}
+
+.strength-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+/* Auth divider */
+.auth-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: var(--space-4) 0;
+  color: var(--color-text-light);
+  font-size: var(--text-xs);
+  font-weight: 700;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.auth-divider span {
+  padding: 0 var(--space-3);
+}
+
+/* Google button */
+.btn-google {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: #1e293b;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.btn-google:hover {
+  background: #f8fafc;
+  border-color: #94a3b8;
+}
+
+/* Employee Gov Notice */
+.employee-gov-notice {
+  background: #fefce8;
+  border: 1px solid #fef08a;
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  display: flex;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+/* Demo PF Pills */
+.demo-pfs-wrap {
+  margin-top: var(--space-4);
+  background: #f1f5f9;
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+}
+
+.demo-pfs-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-2);
+}
+
+.demo-pfs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.demo-pf-pill {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: var(--radius-sm);
+  padding: 6px 10px;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--color-secondary);
+  cursor: pointer;
+  text-align: left;
+  transition: all var(--transition);
+}
+
+.demo-pf-pill:hover {
+  background: #e2e8f0;
+  border-color: #94a3b8;
+}

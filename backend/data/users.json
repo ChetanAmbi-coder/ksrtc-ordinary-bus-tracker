@@ -1,0 +1,20 @@
+[
+  {
+    "id": "USR-101",
+    "name": "Kavitha Gowda",
+    "email": "kavitha.gowda@gmail.com",
+    "password": "Password@123",
+    "gender": "Female",
+    "shakthiEligible": true,
+    "createdAt": "2026-10-18T08:00:00Z"
+  },
+  {
+    "id": "USR-102",
+    "name": "Prajwal Kumar",
+    "email": "prajwal.k@gmail.com",
+    "password": "SecurePass#2026",
+    "gender": "Male",
+    "shakthiEligible": false,
+    "createdAt": "2026-10-18T08:30:00Z"
+  }
+]

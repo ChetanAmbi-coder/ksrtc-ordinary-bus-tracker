@@ -1,0 +1,188 @@
+[
+  {
+    "district": "Bengaluru Urban",
+    "districtKannada": "ಬೆಂಗಳೂರು ನಗರ",
+    "talukCount": 5,
+    "taluks": ["Bengaluru North", "Bengaluru South", "Bengaluru East", "Yelahanka", "Anekal"]
+  },
+  {
+    "district": "Bengaluru Rural",
+    "districtKannada": "ಬೆಂಗಳೂರು ಗ್ರಾಮಾಂತರ",
+    "talukCount": 4,
+    "taluks": ["Devanahalli", "Doddaballapura", "Hosakote", "Nelamangala"]
+  },
+  {
+    "district": "Ramanagara",
+    "districtKannada": "ರಾಮನಗರ",
+    "talukCount": 4,
+    "taluks": ["Ramanagara", "Channapatna", "Kanakapura", "Magadi"]
+  },
+  {
+    "district": "Mandya",
+    "districtKannada": "ಮಂಡ್ಯ",
+    "talukCount": 7,
+    "taluks": ["Mandya", "Maddur", "Malavalli", "Pandavapura", "Srirangapatna", "Nagamangala", "K.R. Pet"]
+  },
+  {
+    "district": "Mysuru",
+    "districtKannada": "ಮೈಸೂರು",
+    "talukCount": 9,
+    "taluks": ["Mysuru", "Nanjangud", "T. Narasipura", "Hunsur", "Piriyapatna", "H.D. Kote", "K.R. Nagar", "Saligrama", "Saragur"]
+  },
+  {
+    "district": "Chamarajanagar",
+    "districtKannada": "ಚಾಮರಾಜನಗರ",
+    "talukCount": 5,
+    "taluks": ["Chamarajanagar", "Gundlupete", "Kollegala", "Yelandur", "Hanur"]
+  },
+  {
+    "district": "Hassan",
+    "districtKannada": "ಹಾಸನ",
+    "talukCount": 8,
+    "taluks": ["Hassan", "Alur", "Arkalgud", "Arsikere", "Belur", "Channarayapatna", "Holenarasipura", "Sakleshpur"]
+  },
+  {
+    "district": "Tumakuru",
+    "districtKannada": "ತುಮಕೂರು",
+    "talukCount": 10,
+    "taluks": ["Tumakuru", "Gubbi", "Kunigal", "Tiptur", "Chikkanayakanahalli", "Sira", "Pavagada", "Madhugiri", "Koratagere", "Turuvekere"]
+  },
+  {
+    "district": "Kolar",
+    "districtKannada": "ಕೋಲಾರ",
+    "talukCount": 6,
+    "taluks": ["Kolar", "Bangarapet", "Malur", "Mulbagal", "Srinivaspur", "KGF"]
+  },
+  {
+    "district": "Chikkaballapura",
+    "districtKannada": "ಚಿಕ್ಕಬಳ್ಳಾಪುರ",
+    "talukCount": 6,
+    "taluks": ["Chikkaballapura", "Bagepalli", "Chintamani", "Gauribidanur", "Gudibanda", "Sidlaghatta"]
+  },
+  {
+    "district": "Chitradurga",
+    "districtKannada": "ಚಿತ್ರದುರ್ಗ",
+    "talukCount": 6,
+    "taluks": ["Chitradurga", "Challakere", "Hiriyur", "Holalkere", "Hosadurga", "Molakalmuru"]
+  },
+  {
+    "district": "Davangere",
+    "districtKannada": "ದಾವಣಗೆರೆ",
+    "talukCount": 5,
+    "taluks": ["Davangere", "Harihara", "Honnali", "Channagiri", "Nyamathi"]
+  },
+  {
+    "district": "Shivamogga",
+    "districtKannada": "ಶಿವಮೊಗ್ಗ",
+    "talukCount": 7,
+    "taluks": ["Shivamogga", "Bhadravathi", "Hosanagara", "Sagara", "Shikaripura", "Soraba", "Thirthahalli"]
+  },
+  {
+    "district": "Dakshina Kannada",
+    "districtKannada": "ದಕ್ಷಿಣ ಕನ್ನಡ",
+    "talukCount": 7,
+    "taluks": ["Mangaluru", "Bantwal", "Belthangady", "Puttur", "Sullia", "Moodabidri", "Kadaba"]
+  },
+  {
+    "district": "Udupi",
+    "districtKannada": "ಉಡುಪಿ",
+    "talukCount": 7,
+    "taluks": ["Udupi", "Kundapura", "Karkala", "Byndoor", "Brahmavara", "Kaup", "Hebri"]
+  },
+  {
+    "district": "Chikkamagaluru",
+    "districtKannada": "ಚಿಕ್ಕಮಗಳೂರು",
+    "talukCount": 8,
+    "taluks": ["Chikkamagaluru", "Kadur", "Koppa", "Mudigere", "Narasimharajapura", "Sringeri", "Tarikere", "Ajjampura"]
+  },
+  {
+    "district": "Kodagu",
+    "districtKannada": "ಕೊಡಗು",
+    "talukCount": 5,
+    "taluks": ["Madikeri", "Somwarpet", "Virajpet", "Ponnampet", "Kushalnagar"]
+  },
+  {
+    "district": "Dharwad",
+    "districtKannada": "ಧಾರವಾಡ",
+    "talukCount": 8,
+    "taluks": ["Dharwad", "Hubballi Urban", "Hubballi Rural", "Kundgol", "Navalgund", "Kalghatgi", "Alnavar", "Annigeri"]
+  },
+  {
+    "district": "Belagavi",
+    "districtKannada": "ಬೆಳಗಾವಿ",
+    "talukCount": 15,
+    "taluks": ["Belagavi", "Gokak", "Chikkodi", "Athani", "Raibag", "Hukkeri", "Bailhongal", "Saundatti", "Ramdurg", "Khanapur", "Kagwad", "Mudalagi", "Nippani", "Kittur", "Yaragatti"]
+  },
+  {
+    "district": "Vijayapura",
+    "districtKannada": "ವಿಜಯಪುರ",
+    "talukCount": 13,
+    "taluks": ["Vijayapura", "Indi", "Muddebihal", "Basavana Bagewadi", "Sindagi", "Babaleshwar", "Tikota", "Chadchan", "Kolhar", "Nidagundi", "Devar Hippargi", "Talikoti", "Almel"]
+  },
+  {
+    "district": "Bagalkote",
+    "districtKannada": "ಬಾಗಲಕೋಟೆ",
+    "talukCount": 9,
+    "taluks": ["Bagalkote", "Badami", "Jamkhandi", "Mudhol", "Hungund", "Bilagi", "Ilkal", "Rabkavi Banhatti", "Guledagudda"]
+  },
+  {
+    "district": "Gadag",
+    "districtKannada": "ಗದಗ",
+    "talukCount": 7,
+    "taluks": ["Gadag", "Ron", "Shirhatti", "Nargund", "Mundargi", "Gajendragad", "Lakshmeshwar"]
+  },
+  {
+    "district": "Haveri",
+    "districtKannada": "ಹಾವೇರಿ",
+    "talukCount": 8,
+    "taluks": ["Haveri", "Ranebennur", "Byadgi", "Hirekerur", "Hangal", "Shiggaon", "Savanur", "Rattihalli"]
+  },
+  {
+    "district": "Uttara Kannada",
+    "districtKannada": "ಉತ್ತರ ಕನ್ನಡ",
+    "talukCount": 12,
+    "taluks": ["Karwar", "Sirsi", "Kumta", "Bhatkal", "Ankola", "Haliyal", "Honnavar", "Joida", "Mundgod", "Siddapur", "Yellapur", "Dandeli"]
+  },
+  {
+    "district": "Ballari",
+    "districtKannada": "ಬಳ್ಳಾರಿ",
+    "talukCount": 5,
+    "taluks": ["Ballari", "Kampli", "Siruguppa", "Kurugodu", "Sandur"]
+  },
+  {
+    "district": "Vijayanagara",
+    "districtKannada": "ವಿಜಯನಗರ",
+    "talukCount": 6,
+    "taluks": ["Hosapete", "Kudligi", "Hagaribommanahalli", "Kotturu", "Hoovina Hadagali", "Harapanahalli"]
+  },
+  {
+    "district": "Bidar",
+    "districtKannada": "ಬೀದರ್",
+    "talukCount": 8,
+    "taluks": ["Bidar", "Basavakalyan", "Bhalki", "Homnabad", "Aurad", "Hulsoor", "Kamalnagar", "Chitgoppa"]
+  },
+  {
+    "district": "Kalaburagi",
+    "districtKannada": "ಕಲಬುರಗಿ",
+    "talukCount": 11,
+    "taluks": ["Kalaburagi", "Aland", "Afzalpur", "Chincholi", "Chittapur", "Jewargi", "Sedam", "Shahabad", "Kalagi", "Kamalapur", "Yedrami"]
+  },
+  {
+    "district": "Raichur",
+    "districtKannada": "ರಾಯಚೂರು",
+    "talukCount": 7,
+    "taluks": ["Raichur", "Manvi", "Sindhanur", "Devadurga", "Lingsugur", "Maski", "Sirwar"]
+  },
+  {
+    "district": "Koppal",
+    "districtKannada": "ಕೊಪ್ಪಳ",
+    "talukCount": 7,
+    "taluks": ["Koppal", "Gangavathi", "Kushtagi", "Yelburga", "Kanakagiri", "Karatagi", "Kukanoor"]
+  },
+  {
+    "district": "Yadgir",
+    "districtKannada": "ಯಾದಗಿರಿ",
+    "talukCount": 6,
+    "taluks": ["Yadgir", "Shahapur", "Shorapur", "Hunasagi", "Vadagera", "Gurmitkal"]
+  }
+]
